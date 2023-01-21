@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="p-3 m-1">
+    <legend class="text-center">Reports Generator</legend>
+    
+    <form class="p-5 border border-dark" method="get">
+      <legend>Type 3</legend>
+      <p>
+        Description: This report list the total number of package types (Regular,Fragile,Liquid,Chemical) that have been sent between two dates.
+      </p>
+      <div class="mb-3">
+        <div class="container-fluid">
+          <div class="row">
+           <div class="col-md-6 col-sm-6 col-xs-12">
+        
+            <!-- Form code begins -->
+            
+              <div class="form-group"> <!-- Date input -->
+                <label class="control-label" for="date">From</label>
+                <input class="form-control" id="date" name="date1" placeholder="MM/DD/YYY" type="text"/>
+              </div>
+              <div class="form-group" > <!-- Date input -->
+                <label class="control-label" for="date">To</label>
+                <input class="form-control" id="date" name="date2" placeholder="MM/DD/YYY" type="text"/>
+              </div>
+             
+              </div>
+            </div>
+          </div>    
+         </div>
+         
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Generate report</button>
+      </div>
+
+      <div class="alert alert-dark my-5" role="alert">
+        The Total Number is: {{result[0].totalNum}}
+      </div>
+    </form>
+  <br>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.11.3.min.js"
+    ></script>
+
+    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://formden.com/static/cdn/bootstrap-iso.css"
+    />
+
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+    />
+    <script>
+      $(document).ready(function () {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container =
+          $(".bootstrap-iso form").length > 0
+            ? $(".bootstrap-iso form").parent()
+            : "body";
+        var options = {
+          format: "mm/dd/yyyy",
+          container: container,
+          todayHighlight: true,
+          autoclose: true,
+        };
+        date_input.datepicker(options);
+      });
+    </script>
+  </body>
+</html>
